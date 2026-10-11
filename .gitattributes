@@ -1,0 +1,7 @@
+# LF in the repo; native line endings in the working tree (CRLF on Windows, LF elsewhere).
+# Git detects binary files itself.
+* text=auto
+
+# cmd.exe misparses labels/goto in LF batch files
+*.bat text eol=crlf
+*.cmd text eol=crlf
