@@ -18,9 +18,14 @@ meson setup _build/debug --native-file build-logic/clang-cl.ini
 meson compile -C _build/debug
 ```
 
+For release:
+```powershell
+meson setup _build/release --native-file build-logic/clang-cl.ini --buildtype=release
+```
+
 ## IDE (clangd)
 
-`meson setup` writes `build/debug/compile_commands.json`; `.clangd` points clangd at it.
+`meson setup` writes `_build/debug/compile_commands.json`; `.clangd` points clangd at it.
 
 ## Lint / format
 

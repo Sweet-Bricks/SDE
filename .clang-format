@@ -1,16 +1,226 @@
 ---
-Language: Cpp
-BasedOnStyle: LLVM
-IndentWidth: 4
-ColumnLimit: 120
-PointerAlignment: Left
-AlignAfterOpenBracket: BlockIndent
-BinPackParameters: OnePerLine
-BinPackArguments: false
+AccessModifierOffset: -4
+
+# Align
+AlignAfterOpenBracket: Align
+AlignArrayOfStructures: None
+AlignConsecutiveAssignments:
+    Enabled: false
+AlignConsecutiveBitFields:
+    Enabled: false
+AlignConsecutiveDeclarations:
+    Enabled: false
+AlignConsecutiveMacros:
+    Enabled: true
+AlignConsecutiveShortCaseStatements:
+    Enabled: false
+AlignEscapedNewlines: Left
+AlignOperands: false
+AlignTrailingComments:
+    Kind: Always
+    OverEmptyLines: 0
+
+# Allow
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowBreakBeforeNoexceptSpecifier: Never
+AllowShortBlocksOnASingleLine: false
+AllowShortCaseExpressionOnASingleLine: true
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortCompoundRequirementOnASingleLine: true
+AllowShortEnumsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: Empty
 AllowShortIfStatementsOnASingleLine: Never
-IndentCaseLabels: true
+AllowShortLambdasOnASingleLine: Empty
+AllowShortLoopsOnASingleLine: false
+AllowShortNamespacesOnASingleLine: false
+
+AlwaysBreakBeforeMultilineStrings: false
+
+BinPackArguments: false
+BinPackLongBracedList: false
+BinPackParameters: OnePerLine
+
+BitFieldColonSpacing: Both
+BracedInitializerIndentWidth: -1
+
+# Break
+BreakAdjacentStringLiterals: true
+BreakAfterAttributes: Leave
+BreakAfterReturnType: None
+BreakArrays: true
+BreakBeforeBinaryOperators: None
+BreakBeforeConceptDeclarations: Always
+BreakBeforeInlineASMColon: OnlyMultiline
+BreakBeforeTemplateCloser: false
+BreakBeforeTernaryOperators: false
+BreakBinaryOperations: Never
+BreakConstructorInitializers: BeforeComma
+BreakFunctionDefinitionParameters: false
+BreakInheritanceList: BeforeColon
+BreakStringLiterals: true
+BreakTemplateDeclarations: Yes
+
+BreakBeforeBraces: Custom
+BraceWrapping:
+    AfterCaseLabel: true
+    AfterClass: true
+    AfterControlStatement: Always
+    AfterEnum: true
+    AfterExternBlock: true
+    AfterFunction: true
+    AfterNamespace: true
+    AfterStruct: true
+    AfterUnion: true
+    BeforeCatch: true
+    BeforeElse: true
+    BeforeLambdaBody: true
+    BeforeWhile: false
+    IndentBraces: false
+    SplitEmptyFunction: false
+    SplitEmptyRecord: false
+    SplitEmptyNamespace: true
+
+ColumnLimit: 0
+CompactNamespaces: false
+ConstructorInitializerIndentWidth: 4
+ContinuationIndentWidth: 4
+Cpp11BracedListStyle: false
+DerivePointerAlignment: false
+DisableFormat: false
+EmptyLineAfterAccessModifier: Never
+EmptyLineBeforeAccessModifier: LogicalBlock
+EnumTrailingComma: Leave
+ExperimentalAutoDetectBinPacking: false
+FixNamespaceComments: true
+IncludeBlocks: Regroup
+# Groups: project headers, third-party, standard library
+IncludeCategories:
+    - Regex: '^<(SDL3|vulkan|vk_video)/'
+      Priority: 2
+    - Regex: '^<[a-z_]+>$'
+      Priority: 3
+    - Regex: '.*'
+      Priority: 1
+
+# Indent
+IndentAccessModifiers: false
+IndentCaseBlocks: false
+IndentCaseLabels: false
+# IndentExportBlock: true
+IndentExternBlock: AfterExternBlock
+IndentGotoLabels: true
+IndentPPDirectives: AfterHash
+# IndentRequiresClause: true
+IndentWidth: 4
+IndentWrappedFunctionNames: false
+
+# Insert
 InsertBraces: true
 InsertNewlineAtEOF: true
-FixNamespaceComments: false
-...
+InsertTrailingCommas: Wrapped
+
+IntegerLiteralSeparator:
+    Binary: 4
+    BinaryMinDigits: 8
+    Decimal: 3
+    DecimalMinDigits: 5
+    Hex: 4
+    HexMinDigits: 9
+KeepEmptyLines:
+    AtEndOfFile: false
+    AtStartOfBlock: true
+    AtStartOfFile: true
+KeepFormFeed: false
+LambdaBodyIndentation: OuterScope
+LineEnding: DeriveLF
+MainIncludeChar: Any
+MaxEmptyLinesToKeep: 1
+NamespaceIndentation: None
+
+# OneLineFormatOffRegex: ""
+PackConstructorInitializers: Never
+
+# Penalty
+PenaltyBreakAssignment: 0
+PenaltyBreakBeforeFirstCallParameter: 1
+# PenaltyBreakBeforeMemberAccess: 0
+PenaltyBreakComment: 300
+PenaltyBreakFirstLessLess: 120
+PenaltyBreakOpenParenthesis: 0
+PenaltyBreakScopeResolution: 500
+PenaltyBreakString: 1000
+PenaltyBreakTemplateDeclaration: 0
+PenaltyExcessCharacter: 1000000
+PenaltyIndentedWhitespace: 0
+PenaltyReturnTypeOnItsOwnLine: 200
+
+PointerAlignment: Left
+PPIndentWidth: -1
+QualifierAlignment: Leave
+ReferenceAlignment: Pointer
+ReflowComments: IndentOnly
+RemoveBracesLLVM: false
+RemoveEmptyLinesInUnwrappedLines: true
+RemoveParentheses: Leave
+RemoveSemicolon: false
+RequiresClausePosition: OwnLine
+RequiresExpressionIndentation: OuterScope
+SeparateDefinitionBlocks: Leave
+ShortNamespaceLines: 1
+SkipMacroDefinitionBody: false
+
+# Sort
+SortIncludes:
+    Enabled: true
+    IgnoreCase: true
+SortUsingDeclarations: LexicographicNumeric
+
+# Space
+SpaceAfterCStyleCast: false
+SpaceAfterLogicalNot: false
+SpaceAfterOperatorKeyword: false
+SpaceAfterTemplateKeyword: true
+SpaceAroundPointerQualifiers: Default
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCaseColon: false
+SpaceBeforeCpp11BracedList: false
+SpaceBeforeCtorInitializerColon: true
+SpaceBeforeInheritanceColon: true
+SpaceBeforeParens: ControlStatements
+SpaceBeforeParensOptions:
+    AfterControlStatements: true
+    AfterForeachMacros: true
+    AfterFunctionDefinitionName: false
+    AfterFunctionDeclarationName: false
+    AfterIfMacros: true
+    AfterNot: false
+    AfterOverloadedOperator: false
+    AfterPlacementOperator: true
+    AfterRequiresInClause: false
+    AfterRequiresInExpression: false
+    BeforeNonEmptyParentheses: false
+SpaceBeforeRangeBasedForLoopColon: true
+SpaceBeforeSquareBrackets: false
+SpaceInEmptyBlock: false
+
+# Spaces
+SpacesBeforeTrailingComments: 1
+SpacesInAngles: Never
+SpacesInLineCommentPrefix:
+    Minimum: 1
+    Maximum: -1
+SpacesInParens: Never
+SpacesInParensOptions:
+    ExceptDoubleParentheses: false
+    InCStyleCasts: false
+    InConditionalStatements: false
+    InEmptyParentheses: false
+    Other: false
+SpacesInSquareBrackets: false
+
+Standard: Latest
+TabWidth: 4
+UseTab: Never
+WrapNamespaceBodyWithEmptyLines: Never
+---
