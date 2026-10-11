@@ -20,5 +20,5 @@ sdl3_dep = dependency(
     default_options: ['warning_level=0', 'werror=false', 'default_library=static'],
 )
 
-subdir('modules/core')
-subdir('programs/game')
+subdir('modules')
+subdir('programs')

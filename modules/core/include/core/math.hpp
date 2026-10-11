@@ -1,7 +1,9 @@
 #pragma once
 
-namespace game::core
+namespace sde
 {
-[[nodiscard]]
-int add(int a, int b);
-}
+namespace core
+{
+[[nodiscard]] int add(int a, int b);
+} // namespace core
+} // namespace sde

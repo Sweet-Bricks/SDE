@@ -1,7 +1,5 @@
-# Compiler flags for our own targets (third-party subprojects keep their defaults).
-# warning_level=everything + werror=true (root meson.build) give clang-cl /Wall (= clang -Weverything) and /WX.
 add_project_arguments(
-    # clang-cl: /std:c++latest is the post-C++26 draft; this is C++26 (__cplusplus 202400L)
+    # clang-cl: C++26 (__cplusplus 202400L)
     '/std:c++26preview',
 
     # Compat groups flag modern C++ itself
@@ -13,7 +11,6 @@ add_project_arguments(
     '-Wno-pre-c++20-compat-pedantic',
     '-Wno-pre-c++23-compat',
     '-Wno-pre-c++26-compat',
-    '-Wno-c++17-attribute-extensions',
 
     language: 'cpp',
 )
