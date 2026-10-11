@@ -1,0 +1,5 @@
+# Meson subprojects: sources are downloaded on setup; only .wrap files and Meson overlays are tracked
+/*
+!/.gitignore
+!/*.wrap
+!/packagefiles/

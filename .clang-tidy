@@ -1,0 +1,25 @@
+---
+Checks: >
+  bugprone-*,
+  clang-analyzer-*,
+  cppcoreguidelines-*,
+  misc-*,
+  modernize-*,
+  performance-*,
+  portability-*,
+  readability-*,
+  -modernize-use-trailing-return-type,
+  -readability-identifier-length,
+  -readability-magic-numbers,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -portability-avoid-pragma-once,
+  -cppcoreguidelines-pro-type-vararg
+WarningsAsErrors: '*'
+ExtraArgs: ['-Wno-unused-command-line-argument']
+HeaderFilterRegex: '.*(modules|programs).*'
+CheckOptions:
+  # SDL is meant to be used through the SDL3/SDL.h umbrella header.
+  misc-include-cleaner.IgnoreHeaders: '.*SDL3.*'
+  # SDL configuration macros (SDL_MAIN_USE_CALLBACKS, ...) must be macros.
+  cppcoreguidelines-macro-usage.AllowedRegexp: '^SDL_'
+...

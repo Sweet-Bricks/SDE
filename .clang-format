@@ -1,0 +1,16 @@
+---
+Language: Cpp
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 120
+PointerAlignment: Left
+AlignAfterOpenBracket: BlockIndent
+BinPackParameters: OnePerLine
+BinPackArguments: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+IndentCaseLabels: true
+InsertBraces: true
+InsertNewlineAtEOF: true
+FixNamespaceComments: false
+...
