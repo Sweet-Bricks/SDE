@@ -13,9 +13,7 @@ add_project_arguments(
     '-Wno-pre-c++20-compat-pedantic',
     '-Wno-pre-c++23-compat',
     '-Wno-pre-c++26-compat',
-
-    # Flags every printf-style call with a C-API string (e.g. SDL_Log("%s", SDL_GetError()))
-    '-Wno-unsafe-buffer-usage-in-format-attr-call',
+    '-Wno-c++17-attribute-extensions',
 
     language: 'cpp',
 )

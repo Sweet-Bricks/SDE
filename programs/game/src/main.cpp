@@ -1,67 +1,58 @@
-#define SDL_MAIN_USE_CALLBACKS 1
-
-#include <SDL3/SDL.h>
+#include <SDL3/SDL_log.h>
 #include <SDL3/SDL_main.h>
+#include <SDL3/SDL_render.h>
+#include <SDL3/SDL_timer.h>
 
-#include <memory>
+#include <cmath>
+#include <print>
 
-namespace {
-
-struct App {
-    SDL_Window* window = nullptr;
-};
-
+namespace
+{
+SDL_Window* window{};
+SDL_Renderer* renderer{};
 } // namespace
 
-SDL_AppResult SDL_AppInit(void** appstate, int /*argc*/, char** /*argv*/) {
-    auto app = std::make_unique<App>();
+SDL_AppResult SDL_AppInit(void**, int, char**)
+{
+    SDL_SetAppMetadata("Window", "1.0", "Window_1_0");
 
-    if (!SDL_Init(SDL_INIT_VIDEO)) {
+    if (!SDL_Init(SDL_INIT_VIDEO))
+    {
+        std::print("Init failure : {}", SDL_GetError());
         return SDL_APP_FAILURE;
     }
 
-    app->window = SDL_CreateWindow("Game", 1280, 720, SDL_WINDOW_RESIZABLE | SDL_WINDOW_VULKAN);
-
-    if (app->window == nullptr) {
-        SDL_Log("SDL_CreateWindow: %s", SDL_GetError());
+    if (!SDL_CreateWindowAndRenderer("Window", 1366, 768, SDL_WINDOW_RESIZABLE, &window, &renderer))
+    {
+        std::print("Window creation failure : {}", SDL_GetError());
         return SDL_APP_FAILURE;
     }
 
-    *appstate = app.release(); // owned by SDL until SDL_AppQuit
+    SDL_SetRenderLogicalPresentation(renderer, 1366, 768, SDL_LOGICAL_PRESENTATION_LETTERBOX);
+
     return SDL_APP_CONTINUE;
 }
 
-// NOLINTNEXTLINE(misc-const-correctness): signature is fixed by SDL
-SDL_AppResult SDL_AppEvent(void* /*appstate*/, SDL_Event* event) {
-    switch (event->type) {
-        case SDL_EVENT_QUIT:
-            return SDL_APP_SUCCESS;
-
-        case SDL_EVENT_KEY_DOWN:
-            if (event->key.key == SDLK_ESCAPE) {
-                return SDL_APP_SUCCESS;
-            }
-            break;
-
-        default:
-            break;
+SDL_AppResult SDL_AppEvent(void*, SDL_Event* event)
+{
+    if (event->type == SDL_EVENT_QUIT)
+    {
+        return SDL_APP_SUCCESS;
     }
-
     return SDL_APP_CONTINUE;
 }
 
-SDL_AppResult SDL_AppIterate(void* /*appstate*/) {
-    SDL_Delay(16);
+SDL_AppResult SDL_AppIterate(void*)
+{
+    const auto now = static_cast<float>(SDL_GetTicks()) / 1000.0F;
+    const auto r = 0.5F + (0.5F * std::sinf(now));
+    const auto g = 0.5F + (0.5F * std::sinf(now + (3.14F * 2 / 3.F)));
+    const auto b = 0.5F + (0.5F * std::sinf(now + (3.14F * 4 / 3.F)));
 
+    SDL_SetRenderDrawColorFloat(renderer, r, g, b, SDL_ALPHA_OPAQUE_FLOAT);
+    SDL_RenderClear(renderer);
+    SDL_RenderPresent(renderer);
     return SDL_APP_CONTINUE;
 }
 
-void SDL_AppQuit(void* appstate, SDL_AppResult /*result*/) {
-    const std::unique_ptr<App> app{static_cast<App*>(appstate)};
-
-    if (app != nullptr) {
-        SDL_DestroyWindow(app->window);
-    }
-
-    SDL_Quit();
-}
+void SDL_AppQuit(void*, SDL_AppResult) {}
