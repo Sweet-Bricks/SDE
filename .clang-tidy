@@ -28,6 +28,7 @@ Checks: >
   -cppcoreguidelines-avoid-do-while,
   -cppcoreguidelines-avoid-magic-numbers,
   -cppcoreguidelines-avoid-non-const-global-variables,
+  -cppcoreguidelines-special-member-functions,
   -cppcoreguidelines-macro-usage,
   -cppcoreguidelines-narrowing-conversions,
   -cppcoreguidelines-no-malloc,

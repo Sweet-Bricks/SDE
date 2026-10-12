@@ -16,6 +16,7 @@ project(
 add_project_arguments(
     # Turn off compat requirment for all standarts
     '-Wno-c++98-compat-pedantic',
+    '-Wno-padded',
     language: 'cpp',
 )
 
