@@ -12,7 +12,7 @@ SDL_Window* window{};
 SDL_Renderer* renderer{};
 } // namespace
 
-SDL_AppResult SDL_AppInit(void**, int, char**)
+auto SDL_AppInit(void**, int, char**) -> SDL_AppResult
 {
     SDL_SetAppMetadata("Window", "1.0", "Window_1_0");
 
@@ -33,7 +33,7 @@ SDL_AppResult SDL_AppInit(void**, int, char**)
     return SDL_APP_CONTINUE;
 }
 
-SDL_AppResult SDL_AppEvent(void*, SDL_Event* event)
+auto SDL_AppEvent(void*, SDL_Event* event) -> SDL_AppResult
 {
     if (event->type == SDL_EVENT_QUIT)
     {
@@ -42,7 +42,7 @@ SDL_AppResult SDL_AppEvent(void*, SDL_Event* event)
     return SDL_APP_CONTINUE;
 }
 
-SDL_AppResult SDL_AppIterate(void*)
+auto SDL_AppIterate(void*) -> SDL_AppResult
 {
     const auto now = static_cast<float>(SDL_GetTicks()) / 1000.0F;
     const auto r = 0.5F + (0.5F * std::sinf(now));

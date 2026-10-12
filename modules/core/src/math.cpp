@@ -1,12 +1,9 @@
 #include <core/math.hpp>
 
-namespace sde
+namespace sde::core
 {
-namespace core
-{
-int add(int a, int b)
+auto add(int a, int b) -> int
 {
     return a + b;
 }
-} // namespace core
-} // namespace sde
+} // namespace sde::core

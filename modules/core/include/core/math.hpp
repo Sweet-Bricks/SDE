@@ -1,9 +1,6 @@
 #pragma once
 
-namespace sde
+namespace sde::core
 {
-namespace core
-{
-[[nodiscard]] int add(int a, int b);
-} // namespace core
-} // namespace sde
+[[nodiscard]] auto add(int a, int b) -> int;
+} // namespace sde::core
