@@ -1,0 +1,18 @@
+--- a/meson.build
++++ b/meson.build
+@@ -34,6 +34,7 @@
+ 
+ add_project_arguments(
+   '-DUSING_GENERATED_CONFIG_H',
++  '-w',
+   language: 'c',
+ )
+ add_project_arguments(
+@@ -239,6 +240,7 @@
+   )
+   add_project_arguments(
+     '-fobjc-arc',
++    '-w',
+     language: 'objc',
+   )
+ endif

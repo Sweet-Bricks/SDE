@@ -1,26 +1,77 @@
 # SDE
 
-## Setup (Windows)
+## Development setup
 
-Builds with LLVM `clang-cl`; STL, CRT and Windows SDK come from Visual Studio Build Tools.
+### Compile via Zig drop-in llvm
+
+Install zvm for zig versions control
+```sh
+# macOS
+brew tap hendriknielaender/zvm && brew install zvm
+
+# Linux
+curl -fsSL https://raw.githubusercontent.com/hendriknielaender/zvm/main/install.sh | bash
+
+# Windows
+irm https://raw.githubusercontent.com/hendriknielaender/zvm/master/install.ps1 | iex
+```
+
+Install and use zig version.
+```sh
+zvm install 0.17.0
+zvm use 0.17.0
+```
+
+### macOS
+
+```sh
+xcode-select --install
+brew install meson ninja
+```
+
+### Linux
+
+Meson from distro repos is often too old; use `pipx install meson`.
+
+```sh
+sudo apt install ninja-build pkg-config libudev-dev libdbus-1-dev libpipewire-0.3-dev \
+    libwayland-dev libxkbcommon-dev libegl-dev libgl-dev
+```
+
+### Windows
 
 ```powershell
 winget install mesonbuild.meson
 winget install Ninja-build.Ninja
+```
+
+For `clang-cl`:
+
+```powershell
 winget install LLVM.LLVM
 winget install Microsoft.VisualStudio.BuildTools --override "--quiet --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended"
 ```
 
 ## Build
 
-```powershell
-meson setup _build/debug --native-file build-logic/clang-cl.ini
+With Zig (any platform):
+
+```sh
+meson setup _build/debug --native-file build/zig.ini
 meson compile -C _build/debug
 ```
 
-For release:
+With `clang-cl` (Windows):
+
 ```powershell
-meson setup _build/release --native-file build-logic/clang-cl.ini --buildtype=release
+meson setup _build/debug --native-file build/clang-cl.ini
+meson compile -C _build/debug
+```
+
+For release, use a separate build dir with `--buildtype=release`:
+
+```sh
+meson setup _build/release --native-file build/zig.ini --buildtype=release
 ```
 
 ## IDE (clangd)
@@ -29,11 +80,9 @@ meson setup _build/release --native-file build-logic/clang-cl.ini --buildtype=re
 
 ## Lint / format
 
-Meson creates these targets from `.clang-format` / `.clang-tidy` (third-party is skipped). Run them via `ninja`, `meson compile` doesn't see them:
-
-```powershell
-ninja -C _build/debug clang-format        # reformat in place
-ninja -C _build/debug clang-format-check  # check only
+```sh
+ninja -C _build/debug clang-format
+ninja -C _build/debug clang-format-check
 ninja -C _build/debug clang-tidy
-ninja -C _build/debug clang-tidy-fix      # apply fix-its
+ninja -C _build/debug clang-tidy-fix
 ```

@@ -1,1 +1,5 @@
+# Default buld dir
 /_build/
+
+# Zig artifact leftover
+/a.o
