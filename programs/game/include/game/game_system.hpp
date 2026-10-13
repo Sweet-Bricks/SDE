@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/system.hpp"
+#include <core/system.hpp>
 
 class GameSystem : public sde::ISystem
 {

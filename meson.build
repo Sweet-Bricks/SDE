@@ -11,6 +11,7 @@ project(
         'warning_level=everything',
         'werror=true',
         'wrap_mode=forcefallback',
+        'default_library=shared',
     ],
 )
 

@@ -5,5 +5,6 @@ executable(
     'src/game_entry.cpp',
     'src/game_system.cpp',
     include_directories : game_inc,
-    dependencies: [core_dep],
+    dependencies: [trampoline_dep],
+    install: true,
 )
