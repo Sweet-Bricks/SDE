@@ -14,9 +14,11 @@ project(
 )
 
 add_project_arguments(
-    # Turn off compat requirment for all standarts
+    # Turn off useless wrnings
     '-Wno-c++98-compat-pedantic',
     '-Wno-padded',
+    # Do not use exeptions
+    '-fno-exceptions',
     language: 'cpp',
 )
 

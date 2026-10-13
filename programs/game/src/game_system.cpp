@@ -5,8 +5,6 @@
 #include <SDL3/SDL_timer.h>
 
 #include <cmath>
-#include <format>
-#include <stdexcept>
 
 namespace
 {
@@ -20,12 +18,12 @@ void GameSystem::setup()
 
     if (!SDL_Init(SDL_INIT_VIDEO))
     {
-        throw std::runtime_error(std::format("Init failure : {}", SDL_GetError()));
+        // Todo return error
     }
 
     if (!SDL_CreateWindowAndRenderer("Window", 1366, 768, SDL_WINDOW_RESIZABLE, &window, &renderer))
     {
-        throw std::runtime_error(std::format("Window creation failure : {}", SDL_GetError()));
+        // Todo return error
     }
 
     SDL_SetRenderLogicalPresentation(renderer, 1366, 768, SDL_LOGICAL_PRESENTATION_LETTERBOX);

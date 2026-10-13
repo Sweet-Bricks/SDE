@@ -4,6 +4,9 @@
 
 #include <SDL3/SDL_init.h>
 
+#include <algorithm>
+#include <vector>
+
 namespace sde
 {
 Engine::Engine(int, char**)
@@ -13,10 +16,9 @@ Engine::Engine(int, char**)
 auto Engine::initialize() -> SDL_AppResult
 {
     application_init(this);
-    for (auto& sys : systems)
-    {
+    std::ranges::for_each(systems, [](auto& sys) -> auto {
         sys->setup();
-    }
+    });
     return SDL_APP_CONTINUE;
 }
 
@@ -31,10 +33,9 @@ auto Engine::handle_event(SDL_Event* event) -> SDL_AppResult
 
 auto Engine::update() -> SDL_AppResult
 {
-    for (auto& sys : systems)
-    {
+    std::ranges::for_each(systems, [](auto& sys) -> auto {
         sys->update();
-    }
+    });
     return SDL_APP_CONTINUE;
 }
 
