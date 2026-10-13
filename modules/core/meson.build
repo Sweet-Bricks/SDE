@@ -6,11 +6,11 @@ core_lib = static_library(
     'src/sdl_main.cpp',
     'src/system.cpp',
     include_directories : core_inc,
-    dependencies : [sdl3_dep],
+    dependencies : [sdl3_dep, jolt_dep],
 )
 
 core_dep = declare_dependency(
     include_directories: core_inc,
     link_with: core_lib,
-    dependencies: [sdl3_dep]
+    dependencies: [sdl3_dep, jolt_dep]
 )
