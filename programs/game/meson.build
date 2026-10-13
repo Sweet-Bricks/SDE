@@ -1,6 +1,9 @@
+game_inc = include_directories('include')
+
 executable(
     'game',
-    'src/main.cpp',
-    dependencies: [core_dep, sdl3_dep],
-    cpp_args: '-DSDL_MAIN_USE_CALLBACKS=1',
+    'src/game_entry.cpp',
+    'src/game_system.cpp',
+    include_directories : game_inc,
+    dependencies: [core_dep],
 )

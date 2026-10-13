@@ -5,8 +5,9 @@ project(
     meson_version: '>=1.12',
     subproject_dir: 'third-party/subprojects',
     default_options: [
-        'buildtype=debug',
+        'buildtype=debugoptimized',
         'cpp_std=c++23',
+        'cpp_eh=none',
         'warning_level=everything',
         'werror=true',
         'wrap_mode=forcefallback',
@@ -14,8 +15,10 @@ project(
 )
 
 add_project_arguments(
-    # Turn off compat requirment for all standarts
+    # Turn off useless wrnings
     '-Wno-c++98-compat-pedantic',
+    '-Wno-padded',
+    '-Wno-unsafe-buffer-usage-in-container',
     language: 'cpp',
 )
 
