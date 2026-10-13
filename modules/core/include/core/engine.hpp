@@ -1,9 +1,12 @@
 #pragma once
 
 #include "core/system.hpp"
-#include "SDL3/SDL_init.h"
+
+#include <SDL3/SDL_events.h>
+#include <SDL3/SDL_init.h>
 
 #include <memory>
+#include <span>
 #include <vector>
 
 namespace sde
@@ -11,7 +14,7 @@ namespace sde
 class Engine
 {
 public:
-    Engine(int, char**);
+    explicit Engine(std::span<char*>);
 
     auto initialize() -> SDL_AppResult;
     auto handle_event(SDL_Event*) -> SDL_AppResult;

@@ -1,2 +1,16 @@
 CompileFlags:
   CompilationDatabase: _build/debug
+
+Diagnostics:
+  UnusedIncludes: Strict
+  MissingIncludes: Strict
+
+InlayHints:
+  Enabled: true
+  ParameterNames: true
+  DeducedTypes: true
+  Designators: true
+  TypeNameLimit: 20
+
+Index:
+  Background: Build

@@ -1,15 +1,18 @@
 #include "core/engine.hpp"
 
 #include "core/app_entry.hpp"
+#include "core/system.hpp"
 
+#include <SDL3/SDL_events.h>
 #include <SDL3/SDL_init.h>
 
 #include <algorithm>
+#include <span>
 #include <vector>
 
 namespace sde
 {
-Engine::Engine(int, char**)
+Engine::Engine(std::span<char*>)
 {
 }
 

@@ -1,8 +1,10 @@
 #include "game/game_system.hpp"
 
 #include <SDL3/SDL_init.h>
+#include <SDL3/SDL_pixels.h>
 #include <SDL3/SDL_render.h>
 #include <SDL3/SDL_timer.h>
+#include <SDL3/SDL_video.h>
 
 #include <cmath>
 
