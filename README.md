@@ -57,21 +57,27 @@ winget install Microsoft.VisualStudio.BuildTools --override "--quiet --wait --ad
 With Zig (any platform):
 
 ```sh
-meson setup _build/debug --native-file build/zig.ini
+meson setup _build/debug --native-file build/zig.ini --reconfigure --prefix="$PWD/_build/debug/install"
 meson compile -C _build/debug
 ```
 
 With `clang-cl` (Windows):
 
-```powershell
-meson setup _build/debug --native-file build/clang-cl.ini
+```sh
+meson setup _build/debug --native-file build/clang-cl.ini --reconfigure --prefix="$PWD/_build/debug/install"
 meson compile -C _build/debug
 ```
 
 For release, use a separate build dir with `--buildtype=release`:
 
 ```sh
-meson setup _build/release --native-file build/zig.ini --buildtype=release
+meson setup _build/release --native-file build/zig.ini --buildtype=release --prefix="$PWD/_build/release/install"
+```
+
+## Install (runnable layout)
+
+```sh
+meson install -C _build/debug --tags runtime
 ```
 
 ## IDE (clangd)

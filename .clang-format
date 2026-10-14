@@ -94,14 +94,13 @@ EnumTrailingComma: Leave
 ExperimentalAutoDetectBinPacking: false
 FixNamespaceComments: true
 IncludeBlocks: Regroup
-# Groups: project headers, third-party, standard library
 IncludeCategories:
-    - Regex: '^<(SDL3|vulkan|vk_video)/'
-      Priority: 2
+    - Regex: '^"'
+      Priority: 1
     - Regex: '^<[a-z_]+>$'
       Priority: 3
     - Regex: '.*'
-      Priority: 1
+      Priority: 2
 
 # Indent
 IndentAccessModifiers: false
@@ -134,7 +133,7 @@ KeepEmptyLines:
 KeepFormFeed: false
 LambdaBodyIndentation: OuterScope
 LineEnding: DeriveLF
-MainIncludeChar: Any
+MainIncludeChar: Quote
 MaxEmptyLinesToKeep: 1
 NamespaceIndentation: None
 

@@ -1,6 +1,5 @@
 #include "core/engine.hpp"
 
-#include "core/app_entry.hpp"
 #include "core/system.hpp"
 
 #include <SDL3/SDL_events.h>
@@ -18,7 +17,6 @@ Engine::Engine(std::span<char*>)
 
 auto Engine::initialize() -> SDL_AppResult
 {
-    application_init(this);
     std::ranges::for_each(systems, [](auto& sys) -> auto {
         sys->setup();
     });
