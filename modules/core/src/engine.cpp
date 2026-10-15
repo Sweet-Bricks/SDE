@@ -1,11 +1,13 @@
 #include "core/engine.hpp"
 
+#include "core/resource_provider.hpp"
 #include "core/system.hpp"
 
 #include <SDL3/SDL_events.h>
 #include <SDL3/SDL_init.h>
 
 #include <algorithm>
+#include <memory>
 #include <span>
 #include <vector>
 
@@ -17,6 +19,7 @@ Engine::Engine(std::span<char*>)
 
 auto Engine::initialize() -> SDL_AppResult
 {
+    res_provider = std::make_unique<ResourceProvider>();
     std::ranges::for_each(systems, [](auto& sys) -> auto {
         sys->setup();
     });

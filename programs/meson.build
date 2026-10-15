@@ -1,1 +1,2 @@
 subdir('game')
+subdir('unittest')

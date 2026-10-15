@@ -23,6 +23,15 @@ add_project_arguments(
     language: 'cpp',
 )
 
+fs = import('fs')
+python = import('python').find_installation()
+
+components = [] # List of maps for asset system
+component_deps = {} # Modules depth registry for collecting transitive modules
+
 subdir('third-party')
 subdir('modules')
 subdir('programs')
+
+# Finalization magic
+subdir('build')
