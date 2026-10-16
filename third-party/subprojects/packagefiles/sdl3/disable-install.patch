@@ -1,0 +1,11 @@
+--- a/meson.build
++++ b/meson.build
+@@ -473,7 +473,7 @@
+   include_directories: ['include', 'src'],
+   c_args: extra_args,
+   dependencies: sdl_deps,
+-  install: true,
++  install: false,
+ )
+ 
+ sdl3_dep = declare_dependency(

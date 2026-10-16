@@ -58,14 +58,14 @@ With Zig (any platform):
 
 ```sh
 meson setup _build/debug --native-file build/zig.ini --reconfigure --prefix="$PWD/_build/debug/install"
-meson compile -C _build/debug
+meson install -C _build/debug --tags runtime
 ```
 
 With `clang-cl` (Windows):
 
 ```sh
 meson setup _build/debug --native-file build/clang-cl.ini --reconfigure --prefix="$PWD/_build/debug/install"
-meson compile -C _build/debug
+meson install -C _build/debug --tags runtime
 ```
 
 For release, use a separate build dir with `--buildtype=release`:
@@ -74,11 +74,16 @@ For release, use a separate build dir with `--buildtype=release`:
 meson setup _build/release --native-file build/zig.ini --buildtype=release --prefix="$PWD/_build/release/install"
 ```
 
-## Install (runnable layout)
+## Tests
 
 ```sh
-meson install -C _build/debug --tags runtime
+meson test -C _build/debug
+
+# With debugger
+meson test -C _build/debug --wrapper=raddbg -t 0 unittest
 ```
+
+Full log: `_build/debug/meson-logs/testlog.txt`.
 
 ## IDE (clangd)
 

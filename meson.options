@@ -1,0 +1,7 @@
+option(
+    'res_mode',
+    type: 'combo',
+    choices: ['mount', 'copy'],
+    value: 'mount',
+    description: 'mount: source paths in <program>/mount_points.txt; copy: resources in <program>/res/<module>',
+)
