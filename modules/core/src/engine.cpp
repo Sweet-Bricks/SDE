@@ -13,16 +13,12 @@
 
 namespace sde
 {
-Engine::Engine(std::span<char*>)
-{
-}
+Engine::Engine(std::span<char*>) {}
 
 auto Engine::initialize() -> SDL_AppResult
 {
     res_provider = std::make_unique<ResourceProvider>();
-    std::ranges::for_each(systems, [](auto& sys) -> auto {
-        sys->setup();
-    });
+    std::ranges::for_each(systems, [](auto& sys) -> auto { sys->setup(); });
     return SDL_APP_CONTINUE;
 }
 
@@ -36,9 +32,7 @@ auto Engine::handle_event(SDL_Event* event) -> SDL_AppResult
 
 auto Engine::update() -> SDL_AppResult
 {
-    std::ranges::for_each(systems, [](auto& sys) -> auto {
-        sys->update();
-    });
+    std::ranges::for_each(systems, [](auto& sys) -> auto { sys->update(); });
     return SDL_APP_CONTINUE;
 }
 

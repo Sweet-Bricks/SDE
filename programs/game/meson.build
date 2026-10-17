@@ -12,6 +12,7 @@ game_exe = executable(
     'src/game_system.cpp',
     include_directories : game_inc,
     dependencies: dependencies,
+    cpp_pch: '../../build/include/std_pch.hpp',
     install: true,
     install_dir: get_option('prefix') / 'game',
     install_tag: 'runtime',

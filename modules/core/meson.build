@@ -8,14 +8,17 @@ core_inc = include_directories('include')
 
 core_lib = shared_library(
     'core',
+    'src/render/obj_data.cpp',
+    'src/render/obj_loader.cpp',
     'src/engine.cpp',
     'src/system.cpp',
-    'src/obj_loader.cpp',
+    'src/file_utils.cpp',
     'src/resource_path.cpp',
     'src/resource_provider.cpp',
     include_directories: core_inc,
     dependencies: dependencies,
-    cpp_args: '-DSDE_CORE_BUILD',
+    cpp_pch: '../../build/include/std_pch.hpp',
+    cpp_args: ['-DSDE_CORE_BUILD'],
     gnu_symbol_visibility: 'hidden',
     install: false,
 )

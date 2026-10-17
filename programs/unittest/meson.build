@@ -12,6 +12,7 @@ unittest_exe = executable(
     'src/obj_loader.unittest.cpp',
     include_directories : unittest_inc,
     dependencies: dependencies,
+    cpp_pch: '../../build/include/std_pch.hpp',
     install: true,
     install_dir: get_option('prefix') / 'unittest',
     install_tag: 'runtime',

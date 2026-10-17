@@ -31,7 +31,7 @@ AllowShortCompoundRequirementOnASingleLine: true
 AllowShortEnumsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: Empty
 AllowShortIfStatementsOnASingleLine: Never
-AllowShortLambdasOnASingleLine: Empty
+AllowShortLambdasOnASingleLine: Inline
 AllowShortLoopsOnASingleLine: false
 AllowShortNamespacesOnASingleLine: false
 
@@ -49,12 +49,12 @@ BreakAdjacentStringLiterals: true
 BreakAfterAttributes: Leave
 BreakAfterReturnType: None
 BreakArrays: true
-BreakBeforeBinaryOperators: None
+BreakBeforeBinaryOperators: NonAssignment
 BreakBeforeConceptDeclarations: Always
 BreakBeforeInlineASMColon: OnlyMultiline
 BreakBeforeTemplateCloser: false
 BreakBeforeTernaryOperators: false
-BreakBinaryOperations: Never
+BreakBinaryOperations: OnePerLine
 BreakConstructorInitializers: BeforeComma
 BreakFunctionDefinitionParameters: false
 BreakInheritanceList: BeforeColon
@@ -81,7 +81,7 @@ BraceWrapping:
     SplitEmptyRecord: false
     SplitEmptyNamespace: true
 
-ColumnLimit: 0
+ColumnLimit: 160
 CompactNamespaces: false
 ConstructorInitializerIndentWidth: 4
 ContinuationIndentWidth: 4
