@@ -23,6 +23,11 @@ add_project_arguments(
     language: 'cpp',
 )
 
+add_global_arguments(
+    '-DSPDLOG_NO_EXCEPTIONS',
+    language: 'cpp'
+)
+
 fs = import('fs')
 python = import('python').find_installation()
 

@@ -28,8 +28,7 @@ auto Engine::initialize() -> SDL_AppResult
 
 auto Engine::handle_event(SDL_Event* event) -> SDL_AppResult
 {
-    if (event->type == SDL_EVENT_QUIT)
-    {
+    if (event->type == SDL_EVENT_QUIT) {
         return SDL_APP_SUCCESS;
     }
     return SDL_APP_CONTINUE;

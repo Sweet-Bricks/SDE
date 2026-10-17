@@ -65,7 +65,7 @@ BreakBeforeBraces: Custom
 BraceWrapping:
     AfterCaseLabel: true
     AfterClass: true
-    AfterControlStatement: Always
+    AfterControlStatement: Never
     AfterEnum: true
     AfterExternBlock: true
     AfterFunction: true
