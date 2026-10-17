@@ -1,4 +1,4 @@
-requires = ['sdl3', 'eigen3']
+requires = ['sdl3', 'eigen3', 'spdlog']
 dependencies = []
 foreach name : requires
     dependencies += component_deps[name]
@@ -11,6 +11,7 @@ core_lib = shared_library(
     'src/engine.cpp',
     'src/system.cpp',
     'src/obj_loader.cpp',
+    'src/resource_path.cpp',
     'src/resource_provider.cpp',
     include_directories: core_inc,
     dependencies: dependencies,

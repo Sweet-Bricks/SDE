@@ -10,16 +10,15 @@ sde::Engine* test_engine = nullptr;
 auto main(int argc, char** argv) -> int
 {
     doctest::Context context;
+    context.setOption("no-intro", true);
+    context.setOption("no-path-filenames", true);
     context.applyCommandLine(argc, argv);
 
-    if (context.shouldExit())
-    {
+    if (context.shouldExit()) {
         return context.run();
     }
 
     test_engine = new sde::Engine{};
     test_engine->initialize();
-
-    int res = context.run();
-    return res;
+    return context.run();
 }
