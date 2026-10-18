@@ -20,6 +20,8 @@ add_project_arguments(
     '-Wno-c++98-compat-pedantic',
     '-Wno-padded',
     '-Wno-unsafe-buffer-usage-in-container',
+    '-Wno-unsafe-buffer-usage',
+    '-Wno-covered-switch-default',
     '-Wno-newline-eof',
     language: 'cpp',
 )
