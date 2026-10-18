@@ -8,13 +8,13 @@ core_inc = include_directories('include')
 
 core_lib = shared_library(
     'core',
-    'src/render/obj_data.cpp',
-    'src/render/obj_loader.cpp',
     'src/engine.cpp',
     'src/system.cpp',
     'src/file_utils.cpp',
     'src/resource_path.cpp',
     'src/resource_provider.cpp',
+    'src/assets/wavefront_obj/parser/wavefront_obj_parser.cpp',
+    'src/assets/wavefront_obj/parser/wavefront_obj_utils.cpp',
     include_directories: core_inc,
     dependencies: dependencies,
     cpp_pch: '../../build/include/std_pch.hpp',
