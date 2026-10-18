@@ -18,13 +18,11 @@ void GameSystem::setup()
 {
     SDL_SetAppMetadata("Window", "1.0", "Window_1_0");
 
-    if (!SDL_Init(SDL_INIT_VIDEO))
-    {
+    if (!SDL_Init(SDL_INIT_VIDEO)) {
         // Todo return error
     }
 
-    if (!SDL_CreateWindowAndRenderer("Window", 1366, 768, SDL_WINDOW_RESIZABLE, &window, &renderer))
-    {
+    if (!SDL_CreateWindowAndRenderer("Window", 1366, 768, SDL_WINDOW_RESIZABLE, &window, &renderer)) {
         // Todo return error
     }
 
